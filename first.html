@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Using Angular JS Directives and Data Binding</title>
+</head>
+<body>
+
+    <div ng-init="title='Directive Sample'">
+        <b>ng-model {{title}} </b>
+        <div ng-init="title='Enter a Text'">
+            <b>{{title}}</b>
+            <input type="text" ng-model="name" ng-init="title='data binding from ng-model = '"/>  <i> {{title}}</i>{{ name }}
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <div ng-init="title='directive to initialize simple array variable'">
+    <div class="container" ng-init="names=['Dave', 'Tom', 'Amy', 'Mark', 'Ally', 'John']">
+        <i> ng-init </i>  <b> {{ title }} </b>  {{ " " + names }}
+        <div ng-init="title='directive to iterate through an array variable name'">
+            <i> ng-repeat</i> <b>{{title}}</b>
+            <ul>
+                <li ng-repeat="personName in names | filter:filterText">{{ personName }}</li>
+           </ul>
+            <div>
+                Filter <input type="text" ng-model="filterText"/>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div ng-init="persons=[{name:'Dave',city:'Atlanta'}, {name:'Tom', city:'Marietta'}, {name:'Amy', city:'Decatur'},
+                    {name:'Mark',city:'Alpharetta'}, {name:'Ally', city:'Cumming'}, {name:'John', city:'Roswell'}]">
+        initialize array of Objects {{ persons }}
+          <!--  <ul>
+               <li ng-repeat="person in persons | filter:
+           </ul>
+            -->
+    </div>
+
+    <script src="scripts/angular.min.js"> </script>
+</body>
+</html>
